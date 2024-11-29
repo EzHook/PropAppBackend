@@ -68,17 +68,17 @@ app.use(express.json());
 
 // Routes
 // Get all properties
-app.get("/api/properties", (req, res) => {
+app.get("/properties", (req, res) => {
   res.json(data.properties);
 });
 
 // Get profile
-app.get("/api/profile", (req, res) => {
+app.get("/profile", (req, res) => {
   res.json(data.profile);
 });
 
 // Get booking by ID
-app.get("/api/booking/:id", (req, res) => {
+app.get("/booking/:id", (req, res) => {
   const booking = data.bookings.find((b) => b.id === req.params.id);
   if (!booking) {
     return res.status(404).json({ error: "Booking not found" });
@@ -87,7 +87,7 @@ app.get("/api/booking/:id", (req, res) => {
 });
 
 //Get Property by ID
-app.get("/api/properties/:id", (req, res) => {
+app.get("/properties/:id", (req, res) => {
   const property = data.properties.find((p) => p.id === req.params.id);
   if (!property) {
     return res.status(404).json({ error: "Property not found" });
